@@ -8,294 +8,101 @@
 
 <title>الوثائق والسياسات | جمعية الجواهر بقمار</title>
 
-<meta name="description" content="الوثائق الرسمية والسياسات التنظيمية الخاصة بجمعية الجواهر بقمار">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
-  --primary:#299E9D;
-  --primary-dark:#1F7E7D;
-  --accent:#7ED6D1;
-  --gold:#F59E0B;
-  --bg:#F5F8F9;
-  --white:#ffffff;
-  --text:#222;
-  --gray:#666;
-  --shadow:0 15px 35px rgba(41,158,157,.15);
-  --radius:24px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body{
   font-family:"Noto Kufi Arabic",sans-serif;
-  background:
-  radial-gradient(circle at top right, rgba(126,214,209,.18), transparent 25%),
-  linear-gradient(180deg,#FAFFFF,#FFFFFF);
-  color:var(--text);
+  margin:0;
+  background:#f5f8f9;
+  color:#222;
 }
 
 .container{
-  width:min(1180px,calc(100% - 30px));
+  width:min(1100px,90%);
   margin:auto;
 }
 
-.topbar{
-  background:var(--primary-dark);
+/* HEADER */
+header{
+  background:#1F7E7D;
   color:white;
-  padding:14px 0;
+  padding:20px 0;
 }
 
-.topbar .container{
+header .container{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
 }
 
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.logo{
-  width:70px;
-  height:70px;
-  border-radius:20px;
-  object-fit:cover;
-  box-shadow:var(--shadow);
-}
-
-.logo-area h1{
-  font-size:18px;
-  line-height:1.7;
-}
-
-.logo-area span{
-  display:block;
-  font-size:12px;
-  opacity:.8;
-}
-
+/* HERO */
 .hero{
-  padding:70px 0 40px;
+  padding:50px 0;
+  text-align:center;
 }
 
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr .9fr;
-  gap:45px;
-  align-items:center;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:rgba(126,214,209,.2);
-  color:var(--primary-dark);
-  padding:12px 18px;
-  border-radius:999px;
-  font-weight:800;
-  margin-bottom:20px;
-}
-
-.hero h2{
-  font-size:clamp(34px,5vw,60px);
-  line-height:1.4;
-  margin-bottom:18px;
-}
-
-.hero h2 span{
-  color:var(--primary);
+.hero h1{
+  color:#1F7E7D;
+  font-size:40px;
 }
 
 .hero p{
-  line-height:2;
-  color:var(--gray);
-  margin-bottom:25px;
-}
-
-.hero-card{
-  background:white;
-  border-radius:34px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(41,158,157,.1);
-}
-
-.hero-image{
-  height:500px;
-  background:
-  linear-gradient(rgba(41,158,157,.18),rgba(126,214,209,.18)),
-  url('https://scontent.fogx1-2.fna.fbcdn.net/v/t39.30808-6/485959338_668510865733878_8836431636439691783_n.jpg') center/cover;
-  position:relative;
-}
-
-.floating-card{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(10px);
-  border-radius:24px;
-  padding:22px;
-}
-
-.floating-card h3{
-  color:var(--primary-dark);
-  margin-bottom:10px;
-}
-
-.floating-card p{
-  color:#555;
-  line-height:1.9;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.section-title h3{
-  font-size:38px;
-  color:var(--primary-dark);
-  margin-bottom:12px;
-}
-
-.section-title p{
   color:#666;
+  line-height:2;
 }
 
-.docs-section{
-  padding:20px 0 80px;
-}
-
-.docs-grid{
+/* DOCS */
+.docs{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:30px 0 80px;
 }
 
-.doc-card{
+.card{
   background:white;
-  border-radius:28px;
-  padding:25px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(41,158,157,.1);
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
   transition:.3s;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
 }
 
-.doc-card:hover{
+.card:hover{
   transform:translateY(-5px);
 }
 
-.doc-icon{
-  width:70px;
-  height:70px;
-  border-radius:22px;
-  background:rgba(126,214,209,.18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:34px;
-  margin-bottom:18px;
+.icon{
+  font-size:30px;
 }
 
-.doc-card h4{
-  color:var(--primary-dark);
-  line-height:1.8;
-  margin-bottom:12px;
-  font-size:18px;
+.card h3{
+  color:#1F7E7D;
 }
 
-.doc-card p{
+.card p{
   color:#666;
-  line-height:2;
-  margin-bottom:20px;
-  flex:1;
+  line-height:1.8;
 }
 
-.doc-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-  border-radius:18px;
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+/* BUTTON */
+.btn{
+  display:block;
+  text-align:center;
+  background:#299E9D;
   color:white;
+  padding:10px;
+  border-radius:10px;
   text-decoration:none;
-  font-weight:800;
-  transition:.3s;
+  margin-top:15px;
 }
 
-.doc-btn:hover{
-  transform:translateY(-2px);
-}
-
+/* LOADING */
 .loading{
   text-align:center;
-  padding:50px 0;
+  padding:40px;
   color:#666;
-  font-size:20px;
-}
-
-footer{
-  background:#172121;
-  color:white;
-  padding:50px 0 20px;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:30px;
-}
-
-footer h4{
-  margin-bottom:16px;
-}
-
-footer p,
-footer a{
-  color:rgba(255,255,255,.75);
-  line-height:2;
-  text-decoration:none;
-}
-
-.copy{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;
-  color:rgba(255,255,255,.6);
-}
-
-@media(max-width:980px){
-
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
 }
 
 </style>
@@ -304,218 +111,92 @@ footer a{
 
 <body>
 
-<div class="topbar">
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <h2>جمعية الجواهر بقمار</h2>
+    <span>الوثائق والسياسات</span>
+  </div>
+</header>
 
-<div class="container">
-
-<div class="logo-area">
-
-<img class="logo"
-src="https://scontent.fogx1-1.fna.fbcdn.net/v/t39.30808-6/327352070_2989580661351512_6179979542828320358_n.jpg"
-alt="جمعية الجواهر">
-
-<h1>
-جمعية الجواهر بقمار
-<span>Association Al-Djawahir Guemar</span>
-</h1>
-
-</div>
-
-<div>
-جواهر الخير… عطاء، إنقاذ، وتنمية
-</div>
-
-</div>
-
-</div>
-
+<!-- HERO -->
 <section class="hero">
+  <div class="container">
+    <h1>منصة الوثائق الرسمية</h1>
+    <p>هنا يتم عرض جميع الوثائق والسياسات الخاصة بالجمعية بشكل مباشر</p>
+  </div>
+</section>
 
-<div class="container hero-grid">
+<!-- DOCS -->
+<section class="container">
 
-<div>
-
-<div class="badge">
-📁 الوثائق والسياسات الرسمية
-</div>
-
-<h2>
-منصة <span>الوثائق الإدارية</span> والحوكمة
-الخاصة بالجمعية
-</h2>
-
-<p>
-توفر جمعية الجواهر بقمار مجموعة من السياسات واللوائح التنظيمية
-والوثائق الرسمية بهدف تعزيز الشفافية والحوكمة وتنظيم العمل الإداري
-والمالي والتطوعي داخل الجمعية.
-</p>
-
-</div>
-
-<div class="hero-card">
-
-<div class="hero-image">
-
-<div class="floating-card">
-
-<h3>
-الشفافية والحوكمة
-</h3>
-
-<p>
-نعمل على نشر الوثائق التنظيمية والسياسات الإدارية
-لتعزيز الثقة وضمان وضوح الإجراءات داخل الجمعية.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<div id="docs" class="docs">
+  <div class="loading">جاري تحميل الوثائق...</div>
 </div>
 
 </section>
-
-<section class="docs-section">
-
-<div class="container">
-
-<div class="section-title">
-
-<h3>الوثائق والسياسات</h3>
-
-<p>
-يمكنكم الاطلاع على الوثائق الرسمية الخاصة بالجمعية.
-</p>
-
-</div>
-
-<div class="docs-grid" id="docsContainer">
-
-<div class="loading">
-جاري تحميل الوثائق...
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
-<h4>جمعية الجواهر بقمار</h4>
-
-<p>
-جمعية خيرية وإنسانية تعمل في مختلف النشاطات الاجتماعية،
-الإنسانية، الصحية، والتطوعية.
-</p>
-
-</div>
-
-<div>
-
-<h4>معلومات التواصل</h4>
-
-<p>الهاتف: 032233730</p>
-
-<p>البريد: associationdjawahir@gmail.com</p>
-
-</div>
-
-<div>
-
-<h4>شعار الجمعية</h4>
-
-<p>
-جواهر الخير… عطاء، إنقاذ، وتنمية
-</p>
-
-</div>
-
-</div>
-
-<div class="copy">
-
-جميع الحقوق محفوظة © جمعية الجواهر بقمار 2026
-
-</div>
-
-</div>
-
-</footer>
 
 <script>
 
-google.script.run
-.withSuccessHandler(renderDocs)
-.getDocuments();
+//////////////////////////////////////////////////////
+// 🔴 غيّر الرابط هنا فقط 👇
+//////////////////////////////////////////////////////
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwDIFv8MnN1PQM6RcKXGeVaC9YflHRGDeo8m1pzvU5pRV9_a3t5Fq3JHzOwgtj-azy3Rg/exec";
+
+//////////////////////////////////////////////////////
+
+async function loadDocs() {
+
+  try {
+
+    const res = await fetch(API_URL);
+    const docs = await res.json();
+
+    renderDocs(docs);
+
+  } catch (err) {
+
+    document.getElementById("docs").innerHTML =
+      "<div class='loading'>حدث خطأ في تحميل البيانات</div>";
+
+  }
+}
 
 function renderDocs(docs){
 
-const container = document.getElementById("docsContainer");
+  const container = document.getElementById("docs");
+  container.innerHTML = "";
 
-container.innerHTML = "";
+  if(!docs || docs.length === 0){
+    container.innerHTML = "<div class='loading'>لا توجد وثائق</div>";
+    return;
+  }
 
-if(docs.length === 0){
+  docs.forEach(doc => {
 
-container.innerHTML = `
-<div class="loading">
-لا توجد وثائق متاحة حالياً
-</div>
-`;
+    container.innerHTML += `
+      <div class="card">
 
-return;
+        <div class="icon">${doc.icon || "📄"}</div>
 
-}
+        <h3>${doc.title || ""}</h3>
 
-docs.forEach(doc=>{
+        <p>${doc.desc || ""}</p>
 
-container.innerHTML += `
+        <a class="btn" href="${doc.driveLink}" target="_blank">
+          فتح الوثيقة
+        </a>
 
-<div class="doc-card">
-
-<div>
-
-<div class="doc-icon">
-${doc.icon}
-</div>
-
-<h4>
-${doc.title}
-</h4>
-
-<p>
-${doc.desc}
-</p>
-
-</div>
-
-<a class="doc-btn"
-href="${doc.driveLink}"
-target="_blank">
-
-📄 فتح الوثيقة
-
-</a>
-
-</div>
-
-`;
-
-});
+      </div>
+    `;
+  });
 
 }
+
+loadDocs();
 
 </script>
 
 </body>
-
 </html>
