@@ -17,8 +17,6 @@
 
 <style>
 
-/* ===== نفس CSS بدون تغيير ===== */
-
 :root{
   --primary:#299E9D;
   --primary-dark:#1F7E7D;
@@ -289,8 +287,15 @@ footer a{
 }
 
 @media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
 }
 
 </style>
@@ -341,7 +346,7 @@ alt="جمعية الجواهر">
 
 <p>
 توفر جمعية الجواهر بقمار مجموعة من السياسات واللوائح التنظيمية
-والوثائق الرسمية.
+والوثائق الرسمية بهدف تعزيز الشفافية والحوكمة.
 </p>
 
 </div>
@@ -352,9 +357,13 @@ alt="جمعية الجواهر">
 
 <div class="floating-card">
 
-<h3>الشفافية والحوكمة</h3>
+<h3>
+الشفافية والحوكمة
+</h3>
 
-<p>نشر الوثائق والسياسات لضمان الشفافية.</p>
+<p>
+نشر الوثائق والسياسات لتعزيز الثقة وضمان وضوح الإجراءات.
+</p>
 
 </div>
 
@@ -374,13 +383,17 @@ alt="جمعية الجواهر">
 
 <h3>الوثائق والسياسات</h3>
 
-<p>يمكنكم الاطلاع على الوثائق الرسمية</p>
+<p>
+يمكنكم الاطلاع على الوثائق الرسمية الخاصة بالجمعية.
+</p>
 
 </div>
 
 <div class="docs-grid" id="docsContainer">
 
-<div class="loading">جاري تحميل الوثائق...</div>
+<div class="loading">
+جاري تحميل الوثائق...
+</div>
 
 </div>
 
@@ -395,25 +408,41 @@ alt="جمعية الجواهر">
 <div class="footer-grid">
 
 <div>
+
 <h4>جمعية الجواهر بقمار</h4>
-<p>جمعية خيرية وإنسانية.</p>
+
+<p>
+جمعية خيرية وإنسانية تعمل في مختلف النشاطات الاجتماعية.
+</p>
+
 </div>
 
 <div>
+
 <h4>معلومات التواصل</h4>
-<p>032233730</p>
-<p>associationdjawahir@gmail.com</p>
+
+<p>الهاتف: 032233730</p>
+
+<p>البريد: wasselmarket@gmail.com</p>
+
 </div>
 
 <div>
-<h4>الشعار</h4>
-<p>جواهر الخير… عطاء وتنمية</p>
+
+<h4>شعار الجمعية</h4>
+
+<p>
+جواهر الخير… عطاء، إنقاذ، وتنمية
+</p>
+
 </div>
 
 </div>
 
 <div class="copy">
+
 جميع الحقوق محفوظة © جمعية الجواهر بقمار 2026
+
 </div>
 
 </div>
@@ -422,43 +451,65 @@ alt="جمعية الجواهر">
 
 <script>
 
-//////////////////////////////////////////////////////
-// 🔴 الرابط الوحيد الذي تحتاج تغييره
-//////////////////////////////////////////////////////
+google.script.run
+.withSuccessHandler(renderDocs)
+.getDocuments();
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwJZbSZ7XnX3eXgsUAbDmIfVVD45f5Fscfu5d0OnFG2rdBuXoxbkY_mZsRHW3OwCrqNvw/exec";
+function renderDocs(docs){
 
-//////////////////////////////////////////////////////
+const container = document.getElementById("docsContainer");
 
-async function loadDocs(){
+container.innerHTML = "";
 
-  const res = await fetch(API_URL);
-  const docs = await res.json();
+if(docs.length === 0){
 
-  const container = document.getElementById("docsContainer");
-  container.innerHTML = "";
+container.innerHTML = `
+<div class="loading">
+لا توجد وثائق متاحة حالياً
+</div>
+`;
 
-  docs.forEach(doc => {
-    container.innerHTML += `
-      <div class="doc-card">
-
-        <div class="doc-icon">${doc.icon}</div>
-
-        <h4>${doc.title}</h4>
-
-        <p>${doc.desc}</p>
-
-        <a class="doc-btn" href="${doc.driveLink}" target="_blank">
-          فتح الوثيقة
-        </a>
-
-      </div>
-    `;
-  });
+return;
 
 }
 
-loadDocs();
+docs.forEach(doc=>{
+
+container.innerHTML += `
+
+<div class="doc-card">
+
+<div>
+
+<div class="doc-icon">
+${doc.icon}
+</div>
+
+<h4>
+${doc.title}
+</h4>
+
+<p>
+${doc.desc}
+</p>
+
+</div>
+
+<a class="doc-btn"
+href="${doc.driveLink}"
+target="_blank">
+
+📄 فتح الوثيقة
+
+</a>
+
+</div>
+
+`;
+
+});
+
+}
 
 </script>
 
