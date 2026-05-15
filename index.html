@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>الوثائق والسياسات | جمعية الجواهر بقمار</title>
+<title>وثائق وسياسات جمعية الجواهر بقمار</title>
 
 <meta name="description" content="الوثائق الرسمية والسياسات التنظيمية الخاصة بجمعية الجواهر بقمار">
 
@@ -248,11 +248,32 @@ body{
   transform:translateY(-2px);
 }
 
-.loading{
+.stats{
+  padding:40px 0;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.stat-box{
+  background:white;
+  border-radius:24px;
+  padding:28px;
   text-align:center;
-  padding:50px 0;
+  box-shadow:var(--shadow);
+}
+
+.stat-box h3{
+  font-size:38px;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.stat-box p{
   color:#666;
-  font-size:20px;
 }
 
 footer{
@@ -292,7 +313,19 @@ footer a{
     grid-template-columns:1fr;
   }
 
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
   .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .stats-grid{
     grid-template-columns:1fr;
   }
 
@@ -346,7 +379,8 @@ alt="جمعية الجواهر">
 
 <p>
 توفر جمعية الجواهر بقمار مجموعة من السياسات واللوائح التنظيمية
-والوثائق الرسمية بهدف تعزيز الشفافية والحوكمة.
+والوثائق الرسمية بهدف تعزيز الشفافية والحوكمة وتنظيم العمل الإداري
+والمالي والتطوعي داخل الجمعية.
 </p>
 
 </div>
@@ -362,11 +396,44 @@ alt="جمعية الجواهر">
 </h3>
 
 <p>
-نشر الوثائق والسياسات لتعزيز الثقة وضمان وضوح الإجراءات.
+نعمل على نشر الوثائق التنظيمية والسياسات الإدارية
+لتعزيز الثقة وضمان وضوح الإجراءات داخل الجمعية.
 </p>
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-box">
+<h3>24+</h3>
+<p>وثيقة وسياسة</p>
+</div>
+
+<div class="stat-box">
+<h3>100%</h3>
+<p>حوكمة وشفافية</p>
+</div>
+
+<div class="stat-box">
+<h3>2026</h3>
+<p>آخر تحديث للوثائق</p>
+</div>
+
+<div class="stat-box">
+<h3>PDF</h3>
+<p>تحميل مباشر للملفات</p>
 </div>
 
 </div>
@@ -391,10 +458,6 @@ alt="جمعية الجواهر">
 
 <div class="docs-grid" id="docsContainer">
 
-<div class="loading">
-جاري تحميل الوثائق...
-</div>
-
 </div>
 
 </div>
@@ -412,7 +475,8 @@ alt="جمعية الجواهر">
 <h4>جمعية الجواهر بقمار</h4>
 
 <p>
-جمعية خيرية وإنسانية تعمل في مختلف النشاطات الاجتماعية.
+جمعية خيرية وإنسانية تعمل في مختلف النشاطات الاجتماعية،
+الإنسانية، الصحية، والتطوعية.
 </p>
 
 </div>
@@ -423,7 +487,7 @@ alt="جمعية الجواهر">
 
 <p>الهاتف: 032233730</p>
 
-<p>البريد: wasselmarket@gmail.com</p>
+<p>البريد: associationdjawahir@gmail.com</p>
 
 </div>
 
@@ -451,46 +515,95 @@ alt="جمعية الجواهر">
 
 <script>
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwJZbSZ7XnX3eXgsUAbDmIfVVD45f5Fscfu5d0OnFG2rdBuXoxbkY_mZsRHW3OwCrqNvw/exec";
+const docs = [
 
-async function loadDocs(){
+{
+title:"لائحة الموارد البشرية",
+desc:"ملف إداري خاص بتنظيم شؤون الموظفين داخل الجمعية.",
+icon:"👨‍💼",
+link:"#"
+},
 
-  try{
+{
+title:"سياسة جمع التبرعات",
+desc:"الضوابط الشرعية والتنظيمية الخاصة بجمع الأموال والتبرعات.",
+icon:"💰",
+link:"#"
+},
 
-    const res = await fetch(API_URL);
-    const docs = await res.json();
+{
+title:"الميثاق الأخلاقي لمجلس الإدارة",
+desc:"القواعد الأخلاقية المنظمة لعمل أعضاء مجلس الإدارة.",
+icon:"📜",
+link:"#"
+},
 
-    renderDocs(docs);
+{
+title:"سياسة تعارض المصالح",
+desc:"تنظيم منع تعارض المصالح داخل الجمعية.",
+icon:"⚖️",
+link:"#"
+},
 
-  }catch(err){
+{
+title:"سياسة خصوصية البيانات",
+desc:"سياسة حماية البيانات والمعلومات الخاصة بالمستفيدين.",
+icon:"🔒",
+link:"#"
+},
 
-    console.log(err);
+{
+title:"اللائحة المالية للجمعية",
+desc:"اللائحة المالية والإجراءات المحاسبية المعتمدة.",
+icon:"📊",
+link:"#"
+},
 
-    document.getElementById("docsContainer").innerHTML =
-      "<div class='loading'>خطأ في الاتصال بالسيرفر</div>";
+{
+title:"سياسة أمن المعلومات",
+desc:"سياسات استخدام التقنية وحماية الأنظمة الرقمية.",
+icon:"🖥️",
+link:"#"
+},
 
-  }
+{
+title:"سياسة مكافحة غسل الأموال",
+desc:"إجراءات مكافحة غسل الأموال وتمويل الإرهاب.",
+icon:"🚨",
+link:"#"
+},
+
+{
+title:"آلية إدارة المتطوعين",
+desc:"تنظيم شؤون التطوع والخدمة المجتمعية.",
+icon:"🤝",
+link:"#"
+},
+
+{
+title:"شهادة تسجيل الجمعية",
+desc:"شهادة الترخيص الرسمية الخاصة بالجمعية.",
+icon:"🏛️",
+link:"#"
+},
+
+{
+title:"آلية تقييم المدير التنفيذي",
+desc:"سياسة تقييم الأداء الإداري وتحديد المزايا.",
+icon:"📈",
+link:"#"
+},
+
+{
+title:"سياسة الاحتفاظ بالوثائق",
+desc:"إجراءات حفظ الوثائق وإتلافها بشكل منظم.",
+icon:"🗂️",
+link:"#"
 }
 
-loadDocs();
-
-function renderDocs(docs){
+];
 
 const container = document.getElementById("docsContainer");
-
-container.innerHTML = "";
-
-if(docs.length === 0){
-
-container.innerHTML = `
-<div class="loading">
-لا توجد وثائق متاحة حالياً
-</div>
-`;
-
-return;
-
-}
 
 docs.forEach(doc=>{
 
@@ -515,7 +628,7 @@ ${doc.desc}
 </div>
 
 <a class="doc-btn"
-href="${doc.driveLink}"
+href="${doc.link}"
 target="_blank">
 
 📄 فتح الوثيقة
@@ -528,9 +641,8 @@ target="_blank">
 
 });
 
-}
-
 </script>
 
 </body>
+
 </html>
