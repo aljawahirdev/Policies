@@ -451,9 +451,28 @@ alt="جمعية الجواهر">
 
 <script>
 
-google.script.run
-.withSuccessHandler(renderDocs)
-.getDocuments();
+const API_URL = "https://script.google.com/macros/s/AKfycbwJZbSZ7XnX3eXgsUAbDmIfVVD45f5Fscfu5d0OnFG2rdBuXoxbkY_mZsRHW3OwCrqNvw/exec";
+
+async function loadDocs(){
+
+  try{
+
+    const res = await fetch(API_URL);
+    const docs = await res.json();
+
+    renderDocs(docs);
+
+  }catch(err){
+
+    console.log(err);
+
+    document.getElementById("docsContainer").innerHTML =
+      "<div class='loading'>خطأ في الاتصال بالسيرفر</div>";
+
+  }
+}
+
+loadDocs();
 
 function renderDocs(docs){
 
